@@ -43,7 +43,7 @@ jobs:
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
 
       - name: Run Docker container
-        run: ls -lah $(pwd) && docker run -v "$(pwd):/app" --workdir /app --rm entrance_automation:latest "--spec=cypress/integration/presence-entrance.spec.js"
+        run: docker run --rm entrance_automation:latest "--spec=cypress/integration/presence-entrance.spec.js"
 
 #      - name: Entrance Check-in
 #        uses: ./
