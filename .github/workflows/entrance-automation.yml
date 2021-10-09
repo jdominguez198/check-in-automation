@@ -45,15 +45,11 @@ jobs:
       - name: Run Docker container
         run: |
           docker run --rm \
-          -e USERNAME \
-          -e PASSWORD \
-          -e LOGIN_URL \
+          -e USERNAME=${{ secrets.PORTAL_USERNAME }} \
+          -e PASSWORD=${{ secrets.PORTAL_PASSWORD }} \
+          -e LOGIN_URL=${{ secrets.PORTAL_LOGIN_URL }} \
           entrance_automation:latest \
           "--spec=cypress/integration/presence-entrance.spec.js"
-        env:
-          USERNAME: ${{ secrets.PORTAL_USERNAME }}
-          PASSWORD: ${{ secrets.PORTAL_PASSWORD }}
-          LOGIN_URL: ${{ secrets.PORTAL_LOGIN_URL }}
 
 #      - name: Entrance Check-in
 #        uses: ./
