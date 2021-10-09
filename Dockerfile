@@ -1,10 +1,8 @@
 FROM cypress/included:8.5.0
 
-RUN mkdir -p /e2e/cypress
+RUN mkdir -p cypress
 
-COPY cypress /e2e/cypress
-COPY cypress.json package.json yarn.lock /e2e/
-
-WORKDIR /e2e/
+COPY cypress cypress
+COPY cypress.json package.json yarn.lock ./
 
 RUN yarn install --production --frozen-lockfile
