@@ -1,0 +1,11 @@
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+
+# Application
+node_modules
+.env
+cypress/downloads
+cypress/fixtures

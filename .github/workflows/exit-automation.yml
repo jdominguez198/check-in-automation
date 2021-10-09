@@ -1,0 +1,23 @@
+name: "exit-automation"
+on:
+  repository_dispatch:
+    types:
+      - exit_automation
+
+jobs:
+  automation:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Entry Action
+        uses: ./
+        with:
+          cypress-arguments: '--spec=cypress/integration/presence-exit.spec.js'
+        env:
+          USERNAME: ${{ secrets.PORTAL_USERNAME }}
+          PASSWORD: ${{ secrets.PORTAL_PASSWORD }}
+          LOGIN_URL: ${{ secrets.PORTAL_LOGIN_URL }}

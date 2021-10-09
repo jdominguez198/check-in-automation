@@ -1,0 +1,11 @@
+name: 'Entry/Exit Automation'
+description: 'Runs a docker image with the entry/exit operations'
+inputs:
+  cypress-arguments:
+    description: 'Arguments passed to Cypress CLI'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.cypress-arguments }}

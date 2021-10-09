@@ -1,0 +1,16 @@
+{
+  "name": "vpcloud-automation",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "Jesus Dominguez <j.dominguez@kodeline.com>",
+  "license": "MIT",
+  "scripts": {
+    "cypress:dev": "cypress open"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {
+    "cypress": "^8.5.0"
+  }
+}
