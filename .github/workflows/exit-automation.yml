@@ -16,7 +16,7 @@ jobs:
       - name: Exit Check-in
         uses: ./
         with:
-          cypress-arguments: '--browser=chrome --spec=cypress/integration/presence-exit.spec.js'
+          cypress-arguments: '--spec=cypress/integration/presence-exit.spec.js'
         env:
           USERNAME: ${{ secrets.PORTAL_USERNAME }}
           PASSWORD: ${{ secrets.PORTAL_PASSWORD }}
