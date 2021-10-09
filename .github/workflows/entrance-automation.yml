@@ -1,8 +1,8 @@
-name: "entry-automation"
+name: "entrance-automation"
 on:
   repository_dispatch:
     types:
-      - entry_automation
+      - entrance_automation
 
 jobs:
   automation:
@@ -13,10 +13,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Entry Action
+      - name: Entrance Check-in
         uses: ./
         with:
-          cypress-arguments: '--spec=cypress/integration/presence-entry.spec.js'
+          cypress-arguments: '--browser=chrome --spec=cypress/integration/presence-entrance.spec.js'
         env:
           USERNAME: ${{ secrets.PORTAL_USERNAME }}
           PASSWORD: ${{ secrets.PORTAL_PASSWORD }}

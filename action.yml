@@ -1,5 +1,5 @@
-name: 'Entry/Exit Automation'
-description: 'Runs a docker image with the entry/exit operations'
+name: 'Entrance/Exit Check-in'
+description: 'Runs a docker image with the entrance/exit operations'
 inputs:
   cypress-arguments:
     description: 'Arguments passed to Cypress CLI'

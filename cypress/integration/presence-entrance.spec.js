@@ -1,7 +1,7 @@
 import { getRandomNumber } from '../utils/utilities';
 
-describe('Request an Exit action', () => {
-  it('Add a Presence Exit action', () => {
+describe('Request an Entrance action', () => {
+  it('Add a Presence Entrance action', () => {
     let language = 'es';
     cy.getHtmlLang().then(lang => language = lang);
 
@@ -11,7 +11,7 @@ describe('Request an Exit action', () => {
       Cypress.env('LOGIN_URL')
     );
     cy.wait(getRandomNumber(1500, 3000));
-    cy.makeExitRequest(language);
+    cy.makeEntranceRequest(language);
     cy.wait(getRandomNumber(1500, 3000));
     cy.doLogout(Cypress.env('LOGIN_URL'));
   });
