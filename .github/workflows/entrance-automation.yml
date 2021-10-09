@@ -32,13 +32,17 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache
       - name: Run Docker container
         run: |
-          echo $USERNAME && \
+          echo "${USERNAME}"; \
           docker run -it --rm \
-            -e USERNAME=${{ secrets.PORTAL_USERNAME }} \
-            -e PASSWORD=${{ secrets.PORTAL_PASSWORD }} \
-            -e LOGIN_URL=${{ secrets.PORTAL_LOGIN_URL }} \
+            -e USERNAME \
+            -e PASSWORD \
+            -e LOGIN_URL \
             entrance_automation:latest \
             --spec=cypress/integration/presence-entrance.spec.js
+        env:
+          USERNAME: ${{ secrets.PORTAL_USERNAME }}
+          PASSWORD: ${{ secrets.PORTAL_PASSWORD }}
+          LOGIN_URL: ${{ secrets.PORTAL_LOGIN_URL }}
 
 #      - name: Entrance Check-in
 #        uses: ./
