@@ -10,4 +10,4 @@ WORKDIR /app/
 
 RUN yarn install --production --frozen-lockfile
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
