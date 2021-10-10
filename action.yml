@@ -8,5 +8,4 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - '--browser chrome'
     - ${{ inputs.cypress-arguments }}
