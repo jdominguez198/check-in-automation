@@ -60,25 +60,19 @@ Cypress.Commands.add('navigateToCheckInSection', (language = 'es') => {
 });
 
 /**
- * Click on 'Entry' button inside 'Entries' section
+ * Click on button inside 'Check-in' section
  */
-Cypress.Commands.add('clickOnEntranceButton', (language = 'es') => {
+Cypress.Commands.add('clickCheckInButton', (checkInType, language = 'es') => {
+  const label = checkInType === 'entrance' ? 'entranceButtonLabel' : 'exitButtonLabel';
+
   cy.get('#content .formulario .fichaje .item_elemento')
     .eq(0)
-    .should('contain.text', locales[language].entranceButtonLabel)
-    .click()
+    .should('contain.text', locales[language][checkInType])
+    // .click()
   ;
-});
-
-/**
- * Click on 'Exit' button inside 'Entries' section
- */
-Cypress.Commands.add('clickOnExitButton', (language = 'es') => {
-  cy.get('#content .formulario .fichaje .item_elemento')
-    .eq(1)
-    .should('contain.text', locales[language].exitButtonLabel)
-    .click()
-  ;
+  cy.get('#openModal .close')
+    .should('contain.text', 'X')
+    .click();
 });
 
 /**
