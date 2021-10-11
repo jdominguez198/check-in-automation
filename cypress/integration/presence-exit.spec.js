@@ -10,9 +10,9 @@ describe('Request an Exit action', () => {
       Cypress.env('PASSWORD'),
       Cypress.env('LOGIN_URL')
     );
-    cy.wait(getRandomNumber(1500, 3000));
+    cy.wait(getRandomNumber(1500, 6000));
     cy.makeExitRequest(language);
-    cy.wait(getRandomNumber(1500, 3000));
+    cy.wait(getRandomNumber(1500, 6000));
     cy.doLogout(Cypress.env('LOGIN_URL'));
   });
 });

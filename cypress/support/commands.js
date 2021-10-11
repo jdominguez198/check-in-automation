@@ -66,7 +66,7 @@ Cypress.Commands.add('clickOnEntranceButton', (language = 'es') => {
   cy.get('#content .formulario .fichaje .item_elemento')
     .eq(0)
     .should('contain.text', locales[language].entranceButtonLabel)
-  // .click()
+    .click()
   ;
 });
 
@@ -77,7 +77,7 @@ Cypress.Commands.add('clickOnExitButton', (language = 'es') => {
   cy.get('#content .formulario .fichaje .item_elemento')
     .eq(1)
     .should('contain.text', locales[language].exitButtonLabel)
-  // .click()
+    .click()
   ;
 });
 
