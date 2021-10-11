@@ -69,7 +69,7 @@ Cypress.Commands.add('clickCheckInButton', (checkInType, language = 'es') => {
   cy.get('#content .formulario .fichaje .item_elemento .boton_fichar')
     .eq(buttonElement)
     .should('contain.text', locales[language][buttonLabel])
-    // .click()
+    .click()
   ;
   cy.get('#openModal .close')
     .should('contain.text', 'X')
