@@ -11,7 +11,7 @@ describe('Request an Entrance action', () => {
       Cypress.env('LOGIN_URL')
     );
     cy.wait(getRandomNumber(1500, 6000));
-    cy.clickCheckInButton('entrance', language);
+    cy.makeCheckInRequest('entrance', language);
     cy.wait(getRandomNumber(1500, 6000));
     cy.doLogout(Cypress.env('LOGIN_URL'));
   });

@@ -11,7 +11,7 @@ describe('Request an Exit action', () => {
       Cypress.env('LOGIN_URL')
     );
     cy.wait(getRandomNumber(1500, 6000));
-    cy.clickCheckInButton('exit', language);
+    cy.makeCheckInRequest('exit', language);
     cy.wait(getRandomNumber(1500, 6000));
     cy.doLogout(Cypress.env('LOGIN_URL'));
   });

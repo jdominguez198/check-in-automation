@@ -63,11 +63,12 @@ Cypress.Commands.add('navigateToCheckInSection', (language = 'es') => {
  * Click on button inside 'Check-in' section
  */
 Cypress.Commands.add('clickCheckInButton', (checkInType, language = 'es') => {
-  const label = checkInType === 'entrance' ? 'entranceButtonLabel' : 'exitButtonLabel';
+  const buttonLabel = checkInType === 'entrance' ? 'entranceButtonLabel' : 'exitButtonLabel';
+  const buttonElement = checkInType === 'entrance' ? 0 : 1;
 
-  cy.get('#content .formulario .fichaje .item_elemento')
-    .eq(0)
-    .should('contain.text', locales[language][checkInType])
+  cy.get('#content .formulario .fichaje .item_elemento .boton_fichar')
+    .eq(buttonElement)
+    .should('contain.text', locales[language][buttonLabel])
     // .click()
   ;
   cy.get('#openModal .close')
@@ -93,17 +94,10 @@ Cypress.Commands.add('doLoginWith', (username, password, loginUrl) => {
 });
 
 /**
- * Access to the Check-in section and click on the Entrance request
+ * Access to the Check-in section and click on the type passed
  */
-Cypress.Commands.add('makeEntranceRequest', (language = 'es') => {
+Cypress.Commands.add('makeCheckInRequest', (checkInType, language = 'es') => {
   cy.navigateToCheckInSection(language);
-  cy.clickOnEntranceButton(language);
+  cy.clickCheckInButton(checkInType, language);
 });
 
-/**
- * Access to the Check-in section and click on the Exit request
- */
-Cypress.Commands.add('makeExitRequest', (language = 'es') => {
-  cy.navigateToCheckInSection(language);
-  cy.clickOnExitButton(language);
-});
