@@ -1,4 +1,5 @@
 import { locales } from '../utils/locales';
+import { getRandomNumber } from '../utils/utilities';
 
 /**
  * Get site language from html tag
@@ -44,11 +45,23 @@ Cypress.Commands.add('login', (username, password) => {
 });
 
 /**
+ * Access to 'Employee' section
+ */
+Cypress.Commands.add('navigateToEmployeeSection', (language = 'es') => {
+  cy.get('#menu > ul > li')
+    .eq(4)
+    .within(() => {
+      cy.get('p')
+        .should('contain.text', locales[language].myPortalSectionLabel)
+      ;
+    })
+    .click();
+});
+
+/**
  * Access to 'Check-in' section
  */
 Cypress.Commands.add('navigateToCheckInSection', (language = 'es') => {
-
-
   cy.get('#submenu > ul > li')
     .eq(0)
     .within(() => {
@@ -97,6 +110,8 @@ Cypress.Commands.add('doLoginWith', (username, password, loginUrl) => {
  * Access to the Check-in section and click on the type passed
  */
 Cypress.Commands.add('makeCheckInRequest', (checkInType, language = 'es') => {
+  cy.navigateToEmployeeSection(language);
+  cy.wait(getRandomNumber(1500, 3000));
   cy.navigateToCheckInSection(language);
   cy.clickCheckInButton(checkInType, language);
 });
