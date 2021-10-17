@@ -27,7 +27,7 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO_SUCCESS }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            The ${{ github.event_name }} event triggered successfully.
+            Check-in for Entrance have been successfully completed.
       - name: Send Telegram KO message
         if: ${{ failure() }}
         uses: appleboy/telegram-action@master
@@ -35,4 +35,4 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO_FAILURE }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            The ${{ github.event_name }} event FAILED!
+            OUCH! Your check-in for Entrance have just FAILED :(
