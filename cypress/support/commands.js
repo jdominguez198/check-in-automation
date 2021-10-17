@@ -84,9 +84,9 @@ Cypress.Commands.add('clickCheckInButton', (checkInType, language = 'es') => {
     .should('contain.text', locales[language][buttonLabel])
     // .click()
   ;
-  // cy.get('#openModal .close')
-  //   .should('contain.text', 'X')
-  //   .click();
+  cy.get('#openModal .close')
+    .should('contain.text', 'X')
+    .click();
 });
 
 /**
