@@ -6,6 +6,8 @@ to test the operations flow.
 The main idea is to use GitHub Actions to expose the repository_dispatch event and use it
 from an external scheduler.
 
+It also supports the message sending to Telegram Chats, so you can get alarms on every state.
+
 ## Usage
 
 ### Docker
@@ -36,11 +38,14 @@ docker run -it check-in-automation:latest --spec=cypress/integration/presence-ex
 2. Define the following Secret Variables under your repository settings 
 in `Settings > Secrets > Actions > New repository secret`.
 
-Variable         | Description                       |
------------------|-----------------------------------|
-PORTAL_LOGIN_URL | Url to the login form in the Site
-PORTAL_USERNAME  | Your login username
-PORTAL_PASSWORD  | Your login password
+Variable             | Description                               |
+---------------------|-------------------------------------------|
+PORTAL_LOGIN_URL     | Url to the login form in the Site
+PORTAL_USERNAME      | Your login username
+PORTAL_PASSWORD      | Your login password
+TELEGRAM_TO_SUCCESS  | Telegram Chat ID to send success message
+TELEGRAM_TO_FAILURE  | Telegram Chat ID to send failure message
+TELEGRAM_TOKEN       | Telegram Bot Token
 
 3. Use an external scheduler or any other tool to request the GitHub API following the cURL example:
 
