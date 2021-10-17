@@ -11,7 +11,7 @@ jobs:
         node-version: [14.x]
     steps:
       - name: Random Sleep
-        run: sleep $(shuf -i 10-30 -n 1)
+        run: sleep $(shuf -i 1-240 -n 1)
       - name: Checkout
         uses: actions/checkout@v2
       - name: Entrance Check-in
