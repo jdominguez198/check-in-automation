@@ -20,3 +20,19 @@ jobs:
           USERNAME: ${{ secrets.PORTAL_USERNAME }}
           PASSWORD: ${{ secrets.PORTAL_PASSWORD }}
           LOGIN_URL: ${{ secrets.PORTAL_LOGIN_URL }}
+      - name: Send Telegram OK message
+        if: ${{ success() }}
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO_SUCCESS }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            The ${{ github.event_name }} event triggered successfully.
+      - name: Send Telegram KO message
+        if: ${{ failure() }}
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO_FAILURE }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            The ${{ github.event_name }} event FAILED!
